@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CIRCLO — Buy Better. Reuse More.</title>
+<meta name="description" content="CIRCLO is a sustainable preloved marketplace. Buy, sell, and swap second-hand products while earning Circlo Points and rescuing items from landfill.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%232F5D4B'/%3E%3Cpath d='M50 22c-12 10-12 26 0 36 12-10 12-26 0-36z' fill='%23F5F3E8'/%3E%3Cpath d='M50 58v18' stroke='%23F5F3E8' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="stage-bg" aria-hidden="true"></div>
+
+<main class="stage">
+
+  <!-- ══════════ SIDE PANEL (desktop only) ══════════ -->
+  <aside class="side-panel">
+    <div class="brand-block">
+      <div class="brand-mark">CIRCLO</div>
+      <p class="brand-tag">Buy Better. Reuse More.</p>
+      <p class="brand-desc">A sustainable preloved marketplace — shop second-hand fashion, books &amp; tech, swap items instead of spending money, and track your environmental impact.</p>
+    </div>
+
+    <div class="side-features">
+      <div class="side-feature"><span class="sf-dot"></span> Buy preloved at honest prices</div>
+      <div class="side-feature"><span class="sf-dot"></span> Swap items, not money</div>
+      <div class="side-feature"><span class="sf-dot"></span> Earn Circlo Points with every order</div>
+    </div>
+
+    <div class="navigator">
+      <div class="navigator-title">PROTOTYPE NAVIGATOR</div>
+      <div class="navigator-grid" id="navigatorGrid"></div>
+    </div>
+
+    <div class="side-foot">Design direction — Forest <b>#2F5D4B</b> · Sage <b>#AFC9AE</b> · Cream <b>#F5F3E8</b> · Charcoal <b>#2B2C29</b></div>
+  </aside>
+
+  <!-- ══════════ PHONE FRAME ══════════ -->
+  <div class="phone-wrap">
+    <div class="phone" id="phone">
+      <div class="phone-bezel">
+        <div class="phone-notch"><span></span></div>
+
+        <!-- Status bar -->
+        <div class="statusbar">
+          <span class="sb-time" id="sbTime">09.41</span>
+          <div class="sb-icons">
+            <svg width="17" height="11" viewBox="0 0 17 11" fill="none"><rect x="0" y="7" width="3" height="4" rx="1" fill="currentColor"/><rect x="4.5" y="4.8" width="3" height="6.2" rx="1" fill="currentColor"/><rect x="9" y="2.4" width="3" height="8.6" rx="1" fill="currentColor"/><rect x="13.5" y="0" width="3" height="11" rx="1" fill="currentColor"/></svg>
+            <svg width="16" height="11" viewBox="0 0 16 12" fill="none"><path d="M8 10.6L5.6 8.2a3.4 3.4 0 014.8 0L8 10.6z" fill="currentColor"/><path d="M3.4 6a6.6 6.6 0 019.2 0L11.2 7.4a4.6 4.6 0 00-6.4 0L3.4 6z" fill="currentColor" opacity=".7"/><path d="M.8 3.4a10.9 10.9 0 0114.4 0l-1.4 1.4a8.9 8.9 0 00-11.6 0L.8 3.4z" fill="currentColor" opacity=".45"/></svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="21" height="11" rx="3.5" stroke="currentColor" opacity=".5"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.5" fill="currentColor"/><path d="M23.5 4v4a2 2 0 000-4z" fill="currentColor" opacity=".5"/></svg>
+          </div>
+        </div>
+
+        <!-- ══════════ APP ══════════ -->
+        <div class="app" id="app">
+
+          <!-- ───────── 01 · ONBOARDING ───────── -->
+          <section class="screen active" id="screen-onboarding">
+            <div class="ob-sky">
+              <div class="ob-logo">C I R C L O</div>
+              <h1 class="ob-headline">Buy Better.<br>Reuse More.</h1>
+              <div class="ob-hero">
+                <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=900&q=80" alt="Rack of preloved clothing" onerror="imgFallback(this,'Preloved Fashion')">
+                <span class="ob-hero-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 8 7 14 12 17c5-3 5-9 0-14z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Sustainable</span>
+              </div>
+              <p class="ob-copy"><strong>Give your items a second life.</strong><br>Buy, sell, and swap preloved products.</p>
+              <div class="ob-dots"><span class="active"></span><span></span><span></span></div>
+              <button class="btn btn-primary btn-block" onclick="handleGetStarted()">GET STARTED</button>
+              <button class="ob-login" onclick="goAuth('login')">Log In</button>
+            </div>
+          </section>
+
+          <!-- ───────── 02 · REGISTER / LOGIN ───────── -->
+          <section class="screen" id="screen-register">
+            <div class="screen-scroll pad">
+              <button class="back-btn" onclick="showScreen('onboarding')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+              <div class="auth-logo">CIRCLO</div>
+              <h2 class="screen-title" id="authTitle">Create Your Account</h2>
+              <p class="screen-sub" id="authSub">Join the circular fashion movement.</p>
+
+              <form id="authForm" onsubmit="handleAuth(event)" novalidate>
+                <label class="field" id="nameField">
+                  <span>Full Name</span>
+                  <input type="text" id="authName" placeholder="e.g. Laras Wijaya" autocomplete="name">
+                </label>
+                <label class="field">
+                  <span>Email</span>
+                  <input type="email" id="authEmail" placeholder="you@example.com" required autocomplete="email">
+                </label>
+                <label class="field">
+                  <span>Password</span>
+                  <input type="password" id="authPassword" placeholder="Minimum 6 characters" required autocomplete="new-password">
+                </label>
+
+                <label class="checkbox-row" id="termsRow">
+                  <input type="checkbox" id="authTerms" checked>
+                  <span class="checkbox-box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span>I Agree to <a href="#" onclick="openModalText('terms');return false;">Terms &amp; Conditions</a></span>
+                </label>
+
+                <div class="form-error" id="authError"></div>
+                <button type="submit" class="btn btn-primary btn-block" id="authSubmit">CREATE ACCOUNT</button>
+              </form>
+
+              <button class="auth-switch" id="authSwitch" onclick="toggleAuthMode()">Already have an account? <b>Login</b></button>
+            </div>
+          </section>
+
+          <!-- ───────── 03 · HOME ───────── -->
+          <section class="screen with-nav" id="screen-home">
+            <div class="screen-scroll">
+              <div class="topbar">
+                <span class="wordmark">CIRCLO</span>
+                <button class="icon-btn" onclick="showScreen('checkout')" aria-label="Cart">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6h15l-1.5 9h-12L5 3H2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20" r="1.6" fill="currentColor"/><circle cx="17" cy="20" r="1.6" fill="currentColor"/></svg>
+                  <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+              </div>
+
+              <p class="greeting" id="greetingText">Good morning, User!</p>
+
+              <button class="search-pill" onclick="showScreen('marketplace')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span>Search preloved products…</span>
+              </button>
+
+              <div class="hero-banner">
+                <div class="hero-banner-text">
+                  <span class="hero-kicker">DISCOVER PRELOVED</span>
+                  <h3>Give products<br>a second life</h3>
+                  <button class="btn btn-cream btn-small" onclick="showScreen('marketplace')">SHOP NOW</button>
+                </div>
+                <img class="hero-banner-img" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" alt="Preloved vintage watch" onerror="imgFallback(this,'Preloved')">
+              </div>
+
+              <div class="section-head"><span>CATEGORIES</span></div>
+              <div class="chip-row">
+                <button class="chip" onclick="goCategory('Fashion')">Fashion</button>
+                <button class="chip" onclick="goCategory('Books')">Books</button>
+                <button class="chip" onclick="goCategory('Tech')">Tech</button>
+              </div>
+
+              <div class="section-head"><span>FEATURED PRODUCTS</span><button class="link-mini" onclick="showScreen('marketplace')">See all</button></div>
+              <div class="h-scroll" id="featuredRow"></div>
+
+              <div class="section-head"><span>RECOMMENDED FOR YOU</span></div>
+              <div class="product-grid" id="recommendGrid"></div>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ───────── 04 · MARKETPLACE ───────── -->
+          <section class="screen with-nav" id="screen-marketplace">
+            <div class="screen-scroll">
+              <div class="topbar">
+                <button class="back-inline" onclick="showScreen('home')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+                <span class="topbar-title">EXPLORE PRODUCTS</span>
+                <span class="topbar-spacer"></span>
+              </div>
+
+              <div class="search-field">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <input type="text" id="marketSearch" placeholder="Search products…" oninput="applyMarketFilters()">
+                <button class="search-clear" id="marketSearchClear" onclick="clearMarketSearch()" aria-label="Clear">×</button>
+              </div>
+
+              <div class="filter-row">
+                <label class="select-wrap">
+                  <select id="marketSort" onchange="applyMarketFilters()" aria-label="Sort">
+                    <option value="newest">Sort: Featured</option>
+                    <option value="price-asc">Price: Low → High</option>
+                    <option value="price-desc">Price: High → Low</option>
+                    <option value="rating">Rating</option>
+                  </select>
+                </label>
+                <label class="select-wrap">
+                  <select id="marketCondition" onchange="applyMarketFilters()" aria-label="Condition">
+                    <option value="all">Condition: All</option>
+                    <option value="Like New">Like New</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="chip-row scroll-x" id="marketChips">
+                <button class="chip active" data-cat="all">All Products</button>
+                <button class="chip" data-cat="Fashion">Fashion</button>
+                <button class="chip" data-cat="Books">Books</button>
+                <button class="chip" data-cat="Tech">Tech</button>
+                <button class="chip" data-cat="swap">Swap-friendly</button>
+              </div>
+
+              <div class="results-meta" id="marketMeta">All products</div>
+              <div class="product-grid" id="marketGrid"></div>
+              <div class="empty-state" id="marketEmpty" hidden>
+                <svg width="46" height="46" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <p>No products match “<span id="marketEmptyQuery"></span>”.</p>
+                <button class="btn btn-outline btn-small" onclick="clearMarketSearch()">Clear search</button>
+              </div>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ───────── 05 · PRODUCT DETAIL ───────── -->
+          <section class="screen" id="screen-detail">
+            <div class="screen-scroll">
+              <div class="topbar">
+                <button class="back-inline" onclick="historyBack()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+                <button class="icon-btn" id="detailFavBtn" onclick="toggleFavFromDetail()" aria-label="Save to favorites">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.5-9.3-9A5.4 5.4 0 0112 6.4 5.4 5.4 0 0121.3 11C19 15.5 12 20 12 20z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+
+              <div class="detail-image"><img id="detailImage" alt="Product photo"><span class="detail-condition" id="detailCondition">EXCELLENT</span></div>
+
+              <h2 class="detail-name" id="detailName">Vintage Denim Jacket</h2>
+              <div class="detail-price-row">
+                <span class="detail-price" id="detailPrice">Rp495.000</span>
+                <span class="detail-rating"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> <b id="detailRating">4.8</b> <span id="detailSales">· 214 sold</span></span>
+              </div>
+
+              <button class="seller-row" onclick="openChat(currentDetailSeller())">
+                <span class="avatar" id="detailSellerAvatar">L</span>
+                <span class="seller-meta"><b id="detailSellerName">Laras</b><small>4.8 Seller Rating · Chat seller</small></span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+
+              <div class="detail-block">
+                <div class="detail-label">DESCRIPTION</div>
+                <p id="detailDesc">Classic vintage wash denim jacket, gently worn, no rips. A timeless layer for everyday wear.</p>
+              </div>
+
+              <div class="detail-block detail-swap-hint" id="detailSwapHint">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 4L3 8l4 4M3 8h13M17 20l4-4-4-4M21 16H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                This seller is open to swaps
+              </div>
+
+              <div class="detail-actions">
+                <button class="btn btn-outline btn-block" onclick="openOfferModal()">MAKE AN OFFER</button>
+                <button class="btn btn-primary btn-block" onclick="buyNow()">BUY NOW</button>
+                <button class="btn btn-sage btn-block" onclick="requestSwapFromDetail()">REQUEST A SWAP</button>
+              </div>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ───────── 06 · CIRCLO SWAP ───────── -->
+          <section class="screen with-nav" id="screen-swap">
+            <div class="screen-scroll">
+              <div class="topbar">
+                <span class="topbar-title left">CIRCLO SWAP</span>
+              </div>
+              <h2 class="swap-headline">Exchange items,<br>not just money!</h2>
+
+              <div class="search-field">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <input type="text" id="swapSearch" placeholder="Search items to swap…" oninput="renderSwapList()">
+              </div>
+              <div class="chip-row" id="swapChips">
+                <button class="chip active" data-cat="all">All</button>
+                <button class="chip" data-cat="Fashion">Fashion</button>
+                <button class="chip" data-cat="Books">Books</button>
+                <button class="chip" data-cat="Tech">Tech</button>
+              </div>
+
+              <div class="section-head"><span>AVAILABLE FOR SWAP</span></div>
+              <div class="swap-list" id="swapList"></div>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ───────── 07 · SWAP REQUEST ───────── -->
+          <section class="screen" id="screen-swaprequest">
+            <div class="screen-scroll pad">
+              <button class="back-btn" onclick="showScreen('swap')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+              <h2 class="screen-title center">SWAP REQUEST</h2>
+
+              <div class="swap-req-label">THEIR ITEM</div>
+              <div class="swap-req-card" id="swapTargetCard"></div>
+
+              <div class="swap-req-label">YOUR ITEM</div>
+              <label class="select-wrap block">
+                <select id="swapMyItem"></select>
+              </label>
+
+              <div class="swap-req-label">ADD A MESSAGE</div>
+              <textarea class="textarea" id="swapMessage" rows="4" placeholder="Write your message…">Hi! I love this item. I’d like to swap it with mine — let me know what you think!</textarea>
+
+              <button class="btn btn-primary btn-block" onclick="submitSwapRequest()">SEND REQUEST</button>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ───────── 08 · SELL ITEM ───────── -->
+          <section class="screen" id="screen-sell">
+            <div class="screen-scroll pad">
+              <button class="back-btn" onclick="showScreen('home')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+              <h2 class="screen-title center">SELL AN ITEM</h2>
+
+              <div class="upload-zone" id="uploadZone" onclick="document.getElementById('photoInput').click()">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 5l1.2-2h4.6l1.2 2" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                <span>Add Product Photos</span>
+                <small>Tap to upload from your device</small>
+              </div>
+              <input type="file" id="photoInput" accept="image/*" multiple hidden onchange="handlePhotoUpload(event)">
+              <div class="photo-previews" id="photoPreviews"></div>
+
+              <label class="field"><span>PRODUCT NAME</span><input type="text" id="sellName" placeholder="e.g. Vintage Denim Jacket"></label>
+
+              <label class="field"><span>CATEGORY</span>
+                <select id="sellCategory" class="field-select">
+                  <option value="Fashion">Fashion</option>
+                  <option value="Books">Books</option>
+                  <option value="Tech">Tech</option>
+                </select>
+              </label>
+
+              <label class="field"><span>PRICE</span>
+                <div class="price-input"><span>Rp</span><input type="number" id="sellPrice" placeholder="150.000" min="0" inputmode="numeric"></div>
+              </label>
+
+              <div class="field"><span>CONDITION</span>
+                <div class="condition-pills" id="conditionPills">
+                  <label><input type="radio" name="sellCondition" value="Like New"><span>Like New</span></label>
+                  <label><input type="radio" name="sellCondition" value="Excellent" checked><span>Excellent</span></label>
+                  <label><input type="radio" name="sellCondition" value="Good"><span>Good</span></label>
+                  <label><input type="radio" name="sellCondition" value="Fair"><span>Fair</span></label>
+                </div>
+              </div>
+
+              <label class="field"><span>DESCRIPTION</span><textarea class="textarea" id="sellDesc" rows="3" placeholder="Condition details, measurements, flaws…"></textarea></label>
+
+              <label class="checkbox-row swap-check">
+                <input type="checkbox" id="sellSwap" checked>
+                <span class="checkbox-box"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>Available for swapping</span>
+              </label>
+
+              <div class="form-error" id="sellError"></div>
+              <button class="btn btn-primary btn-block" onclick="publishItem()">PUBLISH ITEM</button>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ───────── 09 · CHECKOUT ───────── -->
+          <section class="screen" id="screen-checkout">
+            <div class="screen-scroll">
+              <div class="topbar">
+                <button class="back-inline" onclick="showScreen('home')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back</button>
+                <span class="topbar-title">CHECKOUT</span>
+                <span class="topbar-spacer"></span>
+              </div>
+
+              <div id="checkoutEmpty" class="empty-state" hidden>
+                <svg width="52" height="52" viewBox="0 0 24 24" fill="none"><path d="M6 6h15l-1.5 9h-12L5 3H2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="20" r="1.4" fill="currentColor"/><circle cx="17" cy="20" r="1.4" fill="currentColor"/></svg>
+                <p>Your cart is empty.<br>Find something preloved you’ll love.</p>
+                <button class="btn btn-primary btn-small" onclick="showScreen('marketplace')">BROWSE MARKETPLACE</button>
+              </div>
+
+              <div id="checkoutContent">
+                <div class="section-head"><span>DELIVERY ADDRESS</span><button class="link-mini" onclick="openAddressModal()">Change</button></div>
+                <div class="address-card">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.4 7-11a7 7 0 10-14 0c0 5.6 7 11 7 11z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" stroke="currentColor" stroke-width="1.7"/></svg>
+                  <div><b id="addressName">Laras Wijaya</b><p id="checkoutAddress">Jl. Sudirman No. 45, Jakarta Selatan 12190</p></div>
+                </div>
+
+                <div class="section-head"><span>ORDER SUMMARY</span></div>
+                <div class="order-list" id="orderList"></div>
+
+                <div class="section-head"><span>PAYMENT METHOD</span></div>
+                <div class="payment-group" id="paymentGroup">
+                  <label class="payment-option"><input type="radio" name="payment" value="Bank Transfer" checked><span class="radio-dot"></span><span class="pay-icon bank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-6 9 6M4 9v10M20 9v10M2 21h20M8 12v4M12 12v4M16 12v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bank Transfer</label>
+                  <label class="payment-option"><input type="radio" name="payment" value="E-Wallet"><span class="radio-dot"></span><span class="pay-icon wallet"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="6" width="19" height="13" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M16 12.5h.01M2.5 9.5h19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>E-Wallet</label>
+                </div>
+
+                <div class="totals">
+                  <div class="totals-row"><span>Product</span><span id="productTotal">Rp0</span></div>
+                  <div class="totals-row"><span>Shipping</span><span>Rp10.000</span></div>
+                  <div class="totals-row grand"><span>TOTAL</span><span id="grandTotal">Rp0</span></div>
+                </div>
+
+                <div class="checkout-foot">
+                  <button class="btn btn-primary btn-block" onclick="placeOrder()">PLACE ORDER</button>
+                </div>
+              </div>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ───────── 10 · IMPACT ───────── -->
+          <section class="screen with-nav" id="screen-impact">
+            <div class="screen-scroll">
+              <div class="impact-hero">
+                <span class="wordmark small">CIRCLO IMPACT</span>
+                <h2>Make Every<br>Purchase Matter!</h2>
+                <p>Every preloved item you buy keeps usable goods in circulation.</p>
+              </div>
+
+              <div class="impact-stat-card">
+                <span class="impact-stat-num" id="impactRescued">12</span>
+                <span class="impact-stat-label">ITEMS RESCUED<br><small>from landfill, thanks to you</small></span>
+              </div>
+
+              <div class="section-head"><span>YOUR CIRCLO POINTS</span></div>
+              <div class="points-card">
+                <div class="points-top"><span class="points-num" id="impactPoints">380</span><span class="points-unit">PTS</span></div>
+                <button class="btn btn-cream btn-small" onclick="redeemPoints()">REDEEM POINTS</button>
+                <small class="points-hint">100 pts = Rp10.000 voucher · you earn 25 pts per item rescued</small>
+              </div>
+
+              <div class="section-head"><span>ACHIEVEMENTS</span></div>
+              <div class="badge-row" id="badgeRow"></div>
+
+              <div class="section-head"><span>RECENT ACTIVITIES</span></div>
+              <div class="activity-list" id="activityList"></div>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ───────── 11 · CHAT ───────── -->
+          <section class="screen" id="screen-chat">
+            <div class="chat-wrap">
+              <div class="chat-header">
+                <button class="back-inline on-dark" onclick="historyBack()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <span class="avatar sm" id="chatAvatar">L</span>
+                <div class="chat-header-meta"><b id="chatSellerName">SELLER NAME</b><small><span class="online-dot"></span>Online</small></div>
+              </div>
+              <div class="chat-body" id="chatBody"></div>
+              <form class="chat-input-bar" onsubmit="sendChatMessage(event)">
+                <input type="text" id="chatInput" placeholder="Type a message…" autocomplete="off">
+                <button type="submit" class="send-btn" aria-label="Send"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 11.5L21 3l-4.5 18-3.5-8-10-1.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></button>
+              </form>
+            </div>
+          </section>
+
+          <!-- ───────── 12 · PROFILE ───────── -->
+          <section class="screen with-nav" id="screen-profile">
+            <div class="screen-scroll">
+              <div class="topbar"><span class="topbar-title left">MY PROFILE</span></div>
+
+              <div class="profile-head">
+                <button class="avatar-xl" id="profileAvatar" onclick="document.getElementById('avatarInput').click()" aria-label="Change profile photo">L</button>
+                <input type="file" id="avatarInput" accept="image/*" hidden onchange="handleAvatarUpload(event)">
+                <h2 id="profileName">Laras Wijaya</h2>
+                <p id="profileEmail">laras@example.com</p>
+                <small class="member-since" id="memberSince">Circlo member since Nov 2026</small>
+                <button class="btn btn-outline btn-small" onclick="openEditProfileModal()">EDIT PROFILE</button>
+              </div>
+
+              <div class="section-head"><span>ACCOUNT</span></div>
+              <div class="menu-list" id="profileMenu"></div>
+
+              <button class="logout-btn" onclick="confirmLogout()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Log Out</button>
+              <div class="scroll-pad"></div>
+            </div>
+          </section>
+
+          <!-- ══════════ BOTTOM NAV ══════════ -->
+          <nav class="bottom-nav" id="bottomNav">
+            <button data-nav="home" onclick="showScreen('home')"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5M5.5 10v9h13v-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Home</span></button>
+            <button data-nav="swap" onclick="showScreen('swap')"><svg viewBox="0 0 24 24" fill="none"><path d="M7 4L3 8l4 4M3 8h13M17 20l4-4-4-4M21 16H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Swap</span></button>
+            <button class="nav-sell" data-nav="sell" onclick="showScreen('sell')" aria-label="Sell an item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+            <button data-nav="impact" onclick="showScreen('impact')"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C7.5 8 7.5 15 12 18.5 16.5 15 16.5 8 12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 18.5V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Impact</span></button>
+            <button data-nav="profile" onclick="showScreen('profile')"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20.5a7.5 7.5 0 0115 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Profile</span></button>
+          </nav>
+
+        </div><!-- /app -->
+        <div class="home-indicator"></div>
+      </div><!-- /phone-bezel -->
+    </div><!-- /phone -->
+  </div><!-- /phone-wrap -->
+</main>
+
+<!-- ══════════ GENERIC MODAL ══════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="onOverlayClick(event)">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head"><h3 id="modalTitle">Title</h3><button class="modal-close" onclick="closeModal()" aria-label="Close">×</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ══════════ ORDER SUCCESS OVERLAY ══════════ -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <div class="success-check"><svg viewBox="0 0 52 52"><circle class="sc-circle" cx="26" cy="26" r="24"/><path class="sc-tick" d="M15 27l8 8 15-16"/></svg></div>
+    <h3>Order Placed!</h3>
+    <p id="successDetail">+25 Circlo Points earned</p>
+    <button class="btn btn-primary btn-block" onclick="closeSuccess()">BACK TO HOME</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
